@@ -6,9 +6,12 @@ pipeline {
 		//Stage - Clean
         stage('Clean') {
             steps {
+				tools {
+					maven 'MAVEN_HOME'
                 sh 'mvn clean'
-            }
-        }
+					 }
+				  }
+		}
 
 		//Stage - Compile
 		stage('Compile') {
