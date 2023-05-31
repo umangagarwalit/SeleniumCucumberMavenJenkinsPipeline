@@ -6,9 +6,9 @@ pipeline {
 		//Stage - Clean
         stage('Clean') {
             steps {
-				tools {
-					maven 'MAVEN_HOME'
-                sh 'mvn clean'
+				script {
+					def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+					sh "${mvnHome}/bin/mvn clean"
 					 }
 				  }
 		}
